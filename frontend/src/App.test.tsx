@@ -81,7 +81,7 @@ describe('Simple working test', () => {
     await waitFor(() => fireEvent.click(screen.getByText('Purchase')));
 
     await waitFor(() => {
-      expect(screen.getByText('approved')).toBeInTheDocument();
+      expect(screen.getByText('Approved')).toBeInTheDocument();
     });
   });
 

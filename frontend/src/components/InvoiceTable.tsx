@@ -35,7 +35,7 @@ function InvoiceTable({ invoices, onNextClick, onDeleteClick }: InvoiceTableProp
       { Header: 'Invoice #', accessor: 'invoice_number' },
       { Header: 'Amount', accessor: 'amount' },
       { Header: 'Due Date', accessor: 'due_date' },
-      { Header: 'Status', accessor: 'status' },
+      { Header: 'Status', accessor: (row: Invoice) => row.status.replace(/^\w/, (match) => match.toUpperCase()) },
       { Header: 'Borrower', accessor: (row: Invoice) => row.borrower.name },
       {
         Header: 'Action',
@@ -59,12 +59,12 @@ function InvoiceTable({ invoices, onNextClick, onDeleteClick }: InvoiceTableProp
     getTableBodyProps,
     headerGroups,
     rows,
-    prepareRow,
-    canPreviousPage,
-    canNextPage,
-    pageOptions,
-    nextPage,
-    previousPage,
+    prepareRow,// @ts-ignore
+    canPreviousPage,// @ts-ignore
+    canNextPage,// @ts-ignore
+    pageOptions,// @ts-ignore    
+    nextPage,// @ts-ignore
+    previousPage,// @ts-ignore
     state: { pageIndex },
   } = useTable<Invoice>({ columns, data, initialState: { pageIndex: 0, pageSize: 10 } as Partial<TableState<Invoice>> }, usePagination) as TableInstance<Invoice> & {
       state: TableState<Invoice>;
