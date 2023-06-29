@@ -1,0 +1,39 @@
+one:
+  id: 1
+  invoice_number: "INV001"
+  amount: 100.00
+  due_date: "2023-06-30"
+  status: "created"
+  borrower_id: 1
+
+two:
+  id: 2
+  invoice_number: "INV002"
+  amount: 100.00
+  due_date: "2023-06-30"
+  status: "created"
+  borrower_id: 1
+
+approved_invoice:
+  id: 3
+  invoice_number: "INV003"
+  amount: 200.00
+  due_date: "2023-07-15"
+  status: "approved"
+  borrower_id: 2
+
+purchased_invoice:
+  id: 4
+  invoice_number: "INV004"
+  amount: 300.00
+  due_date: "2023-07-31"
+  status: "purchased"
+  borrower_id: 3
+
+closed_invoice:
+  id: 5
+  invoice_number: "INV005"
+  amount: 400.00
+  due_date: "2023-08-15"
+  status: "closed"
+  borrower_id: 4

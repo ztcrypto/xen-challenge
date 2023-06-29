@@ -1,0 +1,23 @@
+borrower1:
+  id: 1
+  name: John Doe
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+borrower2:
+  id: 2
+  name: Jane Smith
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+borrower3:
+  id: 3
+  name: John Doe
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
+
+borrower4:
+  id: 4
+  name: Jane Smith
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %>
