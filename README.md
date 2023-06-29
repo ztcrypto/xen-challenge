@@ -5,7 +5,7 @@ Client: React 18, Typescript, react-table
 
 ## Screenshot
 
-![Screenshot](Screenshot.png)
+![Screenshot](./screenshot.png)
 
 # Frontend
 
