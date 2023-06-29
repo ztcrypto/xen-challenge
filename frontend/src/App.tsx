@@ -18,6 +18,22 @@ interface Invoice {
   borrower: Borrower;
 }
 
+const formatedToday = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  let month: string = (today.getMonth() + 1).toString(); // Months are zero-based
+  let day = today.getDate().toString();
+
+  if (Number(month) < 10) {
+    month = `0${month}`;
+  }
+  if (Number(day) < 10) {
+    day = `0${day}`;
+  }
+
+  return `${year}-${month}-${day}`;
+}
+
 function App() {
   const [borrowers, setBorrowers] = useState<Borrower[]>([]);
   const [invoices, setInvoices] = useState<Invoice[]>([]);
@@ -103,12 +119,20 @@ function App() {
 
   return (
     <>
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <h1>Invoices lifecyle management</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="input-container">
+          <label>Invoice Amount</label>
           <input placeholder="amount" {...register('amount', { required: true, min: 1 })} />
-          {errors.amount && <span>Amount is required and must be a positive number</span>}
-          <input data-testid="due" {...register('due', { required: true })} type="date" />
-          {errors.due && <span>Due date is required</span>}
+          {errors.amount && <span className='error'>Amount is required and must be a positive number</span>}
+        </div>
+        <div className="input-container">
+          <label>Due Date</label>
+          <input data-testid="due" {...register('due', { required: true })} type="date" min={formatedToday()}/>
+          {errors.due && <span className='error'>Due date is required</span>}
+        </div>
+        <div className="input-container">
+          <label>Borrower</label>
           <select {...register('borrower', { required: true })}>
             <option value="" />
             {borrowers.map((item) => (
@@ -117,11 +141,11 @@ function App() {
               </option>
             ))}
           </select>
-          {errors.borrower && <span>Borrower is required</span>}
-          <button type="submit">create</button>
-        </form>
-        <InvoiceTable invoices={invoices} onNextClick={handleNext} onDeleteClick={handleDelete} />
-      </div>
+          {errors.borrower && <span className='error'>Borrower is required</span>}
+        </div>
+        <button type="submit" className='create'>Create</button>
+      </form>
+      <InvoiceTable invoices={invoices} onNextClick={handleNext} onDeleteClick={handleDelete} />
     </>
   );
 }

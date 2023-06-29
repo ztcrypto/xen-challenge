@@ -58,7 +58,7 @@ describe('Simple working test', () => {
     fireEvent.change(screen.getByRole('combobox'), { target: { value: '1' } });
     fireEvent.change(screen.getByTestId('due'), { target: { value: '2023-07-03' } });
 
-    fireEvent.click(screen.getByText('create'));
+    fireEvent.click(screen.getByText('Create'));
 
     await waitFor(() => {
       expect(screen.getByText('INV-003')).toBeInTheDocument();
